@@ -34,8 +34,8 @@
 // TODO: wait a couple of clock cycles on Reset
 
 module ddk_core(
-        input   wire  SysClk,            // System Clock
-        input   wire  SysRst,            // System Reset
+        input   wire  clk,               // System Clock
+        input   wire  rst,               // System Reset
         input   wire  TX1,               // LPC TXD1
         output  wire  RX1,               // LPC RXD1
         input   wire  DataClk,           // LPC TXD3
@@ -77,8 +77,8 @@ wire [7:0]   dat_o;
 reg  [7:0]   dat_i;
 reg          ack_i;
 
-assign clk_o = SysClk;
-assign rst_o = SysRst;
+assign clk_o = clk;
+assign rst_o = rst;
 
 // CH1
 wire         ch1_stb_i; // WB Slave STB_I
